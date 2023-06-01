@@ -13,4 +13,9 @@ pm2 list
 # stop a service
 pm2 delete pid; eg: pm2 delete 0
 pm2 delete name; eg: pm2 delete node-backend-api
+
+# checking logs
+pm2 logs
+pm2 logs 0
+pm2 logs node-backend-api
 ```
