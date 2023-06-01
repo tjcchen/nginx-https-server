@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
 
+import "./App.css";
+
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log('fetch data');
-    fetch('http://localhost:8080/api/posts')
+    fetch('/api/posts')
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setPosts(json)
       })
       .catch((err) => {
@@ -19,13 +19,13 @@ const Posts = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Posts</h2>
+    <div className="wrapper">
+      <h1>Posts</h1>
       <Link to='/'>Home</Link>
-      {posts.map((post) => {
+      {posts && posts.map((post) => {
         return (
           <div key={post.id}>
-            <h3>{post.title} - {post.id}</h3>
+            <h3>{post.id} - {post.title}</h3>
             <p>{post.body}</p>
           </div>
         );
@@ -36,7 +36,7 @@ const Posts = () => {
 
 const Home = () => {
   return (
-    <div>
+    <div className="wrapper">
       <h1>Home</h1>
       <Link to='/posts'>Posts</Link>
     </div>

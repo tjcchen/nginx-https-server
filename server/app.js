@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const fetch = require("node-fetch");
 
 const app = express();
 const dotenv = require('dotenv').config()
@@ -18,6 +19,11 @@ app.get("/api/posts", (req, res) => {
     .then((response) => response.json())
     .then((json) => res.json(json));
 });
+
+// to use the frontend build files
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
