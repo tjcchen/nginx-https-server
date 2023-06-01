@@ -5,12 +5,15 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('/api/posts')
+    console.log('fetch data');
+    fetch('http://localhost:8080/api/posts')
       .then((res) => res.json())
       .then((json) => {
+        console.log(json);
         setPosts(json)
       })
       .catch((err) => {
+        console.log(err);
         setPosts([{ id: 'error', title: 'error', body: 'error' }])
       });
   }, []);
