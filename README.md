@@ -1,6 +1,11 @@
 ## nginx-https-server
 Deploy app with Docker, Nginx, and SSL.
 
+## Websites
+Main domain: https://www.tjcchen.org/
+
+Sub domain: https://web.tjcchen.org/
+
 ## Deploy on DigitalOcean
 ```sh
 # check ssh key
@@ -44,7 +49,7 @@ docker exec -it nginx-https-server_frontend_1 bash
 
 certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 
-# there will some config writing to nginx config:
+# there will some configs writing to nginx:
 /etc/nginx/sites-available/default
 ```
 
