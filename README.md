@@ -31,12 +31,13 @@ scp -r frontend/build root@143.198.32.239:~/
 
 # deploy and setup SSL on your vps
 docker-compose up -d
-docker exec -it <frontend_container> bash        # bash into the nginx container
+docker exec -it <container_name> bash        # bash into the nginx container
 certbot --nginx -d domain.com -d www.domain.com  # setup SSL certificate
 certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 
 # purchase domain in AWS
-login -> aws Route 53
+# please note that we can add subdomain like: web.tjcchen.org at this place.
+login -> aws Route 53 -> dashboard -> hosted zones -> hosted zone name -> create record / edit record
 
 # configure your ssl with certbot inside container
 docker exec -it nginx-https-server_frontend_1 bash
@@ -53,6 +54,8 @@ certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 2. Install Docker-Compose: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 
 3. DNS Lookup: https://www.nslookup.io/
+
+4. Register domain name with AWS Route 53: https://us-east-1.console.aws.amazon.com/route53/v2/home?region=us-east-1#Dashboard
 
 
 ## License
