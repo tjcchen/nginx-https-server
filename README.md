@@ -62,6 +62,10 @@ certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 
 4. Register domain name with AWS Route 53: https://us-east-1.console.aws.amazon.com/route53/v2/home?region=us-east-1#Dashboard
 
+5. https://certbot.eff.org/
+
+6. https://eff-certbot.readthedocs.io/en/stable/intro.html
+
 
 ## License
 This project is licensed under the terms of the MIT license.
