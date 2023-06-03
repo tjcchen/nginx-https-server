@@ -1,4 +1,4 @@
-## nginx-https-server
+## Nginx-Https-Server
 Deploy app with Docker, Nginx, and SSL.
 
 ## Websites
@@ -8,7 +8,7 @@ Sub domain: https://web.tjcchen.org/
 
 ## Deploy on DigitalOcean
 ```sh
-# check ssh key
+# check ssh key( need to put your public key in VPS platform for authentication purpose )
 cat ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 cat ~/.ssh/known_hosts
@@ -36,20 +36,20 @@ scp -r frontend/build root@143.198.32.239:~/
 
 # deploy and setup SSL on your vps
 docker-compose up -d
-docker exec -it <container_name> bash        # bash into the nginx container
+docker exec -it <container_name> bash            # bash into the nginx container
 certbot --nginx -d domain.com -d www.domain.com  # setup SSL certificate
 certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 
 # purchase domain in AWS
-# please note that we can add subdomain like: web.tjcchen.org at this place.
+# please note that we can also add subdomain like: web.tjcchen.org at this place.
 login -> aws Route 53 -> dashboard -> hosted zones -> hosted zone name -> create record / edit record
 
-# configure your ssl with certbot inside container
+# configure your ssl with certbot inside container( certbot installation needed )
 docker exec -it nginx-https-server_frontend_1 bash
 
 certbot --nginx -d web.tjcchen.org -d www.tjcchen.org
 
-# there will some configs writing to nginx:
+# after taht, there will be some configs writing to nginx at:
 /etc/nginx/sites-available/default
 ```
 
