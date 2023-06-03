@@ -2,9 +2,9 @@
 Deploy app with Docker, Nginx, and SSL.
 
 ## Websites
-Main domain: https://www.tjcchen.org/
+Main domain: https://www.tjcchen.org/posts
 
-Sub domain: https://web.tjcchen.org/
+Sub domain: https://web.tjcchen.org/posts
 
 ## Deploy on DigitalOcean
 ```sh
